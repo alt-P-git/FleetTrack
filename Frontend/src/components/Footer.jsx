@@ -18,7 +18,7 @@ const Footer = () => {
                     <ul>
                         <li>Home</li>
                         <li>About us</li>
-                        <li>Why FleetTrack?</li>
+                        <li>Delivery</li>
                         <li>Privacy policy</li>
                     </ul>
                 </div>
