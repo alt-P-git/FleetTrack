@@ -2,12 +2,12 @@ import React from "react";
 import './About.css';
 import { NavLink } from 'react-router-dom';
 import fleetTrackLogo from './assets/aboutimg.avif';
-import Headers from './Navbar';
+// import Headers from './Navbar';
 
 const About = () => {
     return (
         <div>
-            <div className="dashNavbar"><Headers /></div>
+            {/* <div className="dashNavbar"><Headers /></div> */}
             <div className="about" id="about">
                 <img src={fleetTrackLogo}></img>
                 {/* <p className="aboutTitle aboutContent"><b>Welcome to FleetTrack, your all-in-one fleet management solution!</b></p> */}

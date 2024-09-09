@@ -15,6 +15,8 @@ import Home from './Home';
 import About from './About';
 import ContactUs from './Contact';
 import Services from './Services';
+import Sidebar from './components/SideBar';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -29,6 +31,7 @@ loadScript()
 root.render(
   // <StrictMode>
     //<ErrorBoundary>
+   
     <Router>
       <Routes>
         {/* <Route path="/" element={<App />} /> */}
@@ -43,8 +46,10 @@ root.render(
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/" element={<Home />} />
+        
       </Routes>
     </Router>
+    
     //</ErrorBoundary>
   // </StrictMode>
 );
