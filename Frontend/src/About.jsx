@@ -2,7 +2,7 @@ import React from "react";
 import './About.css';
 import { NavLink } from 'react-router-dom';
 import fleetTrackLogo from './assets/aboutimg.avif';
-import Headers from './Navbar';
+// import Headers from './Navbar';
 
 const About = () => {
     return (

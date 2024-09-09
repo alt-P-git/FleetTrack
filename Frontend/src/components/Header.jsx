@@ -47,12 +47,8 @@ const Header = () => {
             <div className="sidecontentryt">
                 <h2>Track your fleet with ease</h2>
                 <p>Monitor your vehicles in real-time and optimize your routes with Fleet-Track.</p>
-<<<<<<< HEAD
-                <button className='getstr' onClick={handleGetStarted}>Get Started</button>
-=======
                 {/* <button className='getstr' onClick={() => window.location.href='../components/Extras'}>Get Started</button> */}
                 {/* <Link to="/Extras" className='getstr'>Get Started</Link> */}
->>>>>>> a0b029f4f1d73bb82197cf5deef4d8cb494441a4
             </div>
             <div className='header-contents'>
                 <h2>Fleet-Track</h2>
