@@ -44,9 +44,9 @@ export default function FleetInfo({ selectedVehicle }) {
         </div>
         <div className="bg-gray-200 h-40 rounded-lg flex items-center justify-center">
           <img
-            src="https://i.ibb.co/syjwPjd/photo.jpg"
-            alt="CarImage"
-            className="h-full object-contain"
+            src="https://img.freepik.com/free-photo/truck-with-white-trailer-that-says-scania-side_123827-23486.jpg"
+            alt="truckImg"
+            className="h-full w-full object-cover"
           />
         </div>
       </div>

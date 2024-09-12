@@ -62,8 +62,6 @@
 
 // export default Header;
 
-
-
 import React from "react";
 import { Menu, X, Search, Bell } from "react-feather";
 
@@ -84,15 +82,14 @@ export default function Header({
         <div className="flex items-center">
           <button
             onClick={toggleSidebar}
-            className="mr-4 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
+            className="mr-4 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             {isSidebarOpen ? (
               <X className="w-6 h-6" />
             ) : (
               <Menu className="w-6 h-6" />
             )}
           </button>
-          <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+          <h1 className="text-2xl font-bold bg-white text-black">Dashboard</h1>
         </div>
         <div className="flex items-center">
           <div className="relative mr-4">
@@ -122,9 +119,8 @@ export default function Header({
                 {notifications.map((notif) => (
                   <div
                     key={notif.id}
-                    className={`p-4 ${
-                      notif.read ? "bg-gray-100" : "bg-white"
-                    }`}
+                    className={`p-4 ${notif.read ? "bg-gray-100" : "bg-white"
+                      }`}
                   >
                     <p className="text-sm text-gray-600">{notif.message}</p>
                     <button
