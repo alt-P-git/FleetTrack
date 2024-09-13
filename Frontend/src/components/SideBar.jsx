@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
+
 const useUserData = () => {
   const [userdata, setUserdata] = useState({});
   console.log("response", userdata);
@@ -37,8 +38,8 @@ const Sidebar = () => {
   const logout = () => navigate('/logout');
 
   return (
-    <div className={`${isSidebarOpen ? "w-64" : "w-0"} bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden flex flex-col h-full`}>
-      <div className="flex items-center justify-center p-2 h-40">
+    <div className={`${isSidebarOpen ? "w-80" : "w-0"} bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden flex flex-col h-screen`}>
+      <div className="flex items-center justify-center p-2 h-30">
         <img
           src="https://i.ibb.co/pWQ16dv/logo.webp"
           alt="FleetKu Logo" className="h-full w-auto object-contain"
