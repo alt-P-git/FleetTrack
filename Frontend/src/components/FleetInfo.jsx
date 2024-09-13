@@ -1,9 +1,10 @@
 import React from "react";
 import { Map } from "react-feather";
 
+
 export default function FleetInfo({ selectedVehicle }) {
   return (
-    <div className="bg-white shadow rounded-lg mb-6 flex flex-col md:flex-row">
+    <div className="bg-white shadow rounded-lg mb-6 flex flex-col md:flex-row w-full h-3/4">
       <div className="w-full md:w-3/4 p-4">
         <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 bg-blue-100 opacity-50"></div>
@@ -21,13 +22,15 @@ export default function FleetInfo({ selectedVehicle }) {
           <div className="absolute bottom-1/4 right-1/4 w-3 h-3 bg-yellow-500 rounded-full"></div>
         </div>
       </div>
-      <div className="w-full md:w-1/4 p-4">
+      <div className="w-full md:w-2/4 p-4">
         <h2 className="text-xl font-semibold mb-4">My Fleet</h2>
         <div className="bg-indigo-100 rounded-lg p-4 mb-4">
           <h3 className="text-lg font-semibold text-indigo-600 mb-2">
             {selectedVehicle}
           </h3>
+          <p className="text-2xl font-semibold">Fleet1</p>
           <div className="flex justify-between mb-2">
+            
             <div>
               <p className="text-2xl font-bold">135 Km/h</p>
               <p className="text-sm text-gray-600">Speed</p>

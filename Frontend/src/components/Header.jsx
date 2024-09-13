@@ -89,7 +89,7 @@ export default function Header({
               <Menu className="w-6 h-6" />
             )}
           </button>
-          <h1 className="text-2xl font-bold bg-white text-black">Dashboard</h1>
+          <h1 className="text-2xl font-bold bg-white text-black">FleetTrack</h1>
         </div>
         <div className="flex items-center">
           <div className="relative mr-4">

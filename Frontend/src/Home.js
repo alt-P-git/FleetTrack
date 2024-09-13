@@ -25,8 +25,10 @@ const Home = () => {
       {/* <div id="extras"><Extras /></div> */}
       {/* <div id="contact"><ContactUs /></div> */}
       <Header />
-      <FleetInfo />
-      <Sidebar />
+      <div style={{ display: 'flex' }}>
+        <Sidebar />
+        <FleetInfo />
+      </div>
       
 
       
