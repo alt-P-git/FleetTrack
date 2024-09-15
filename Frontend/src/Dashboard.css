@@ -1,127 +1,187 @@
-body {
-  margin: 0;
-  padding: 0;
+.Dashboard {
+  display: flex;
+  height: 100vh;
 }
 
-.dashNavbar {
-  text-align: center;
-  background-color: #2c3e50;
-  padding: 1px;
+.Sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
 }
 
 .listMapContainer {
+  flex: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+}
+
+.tripOptionsContainer {
+  width: 600px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  position: relative;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerContainer h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 800;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#addTripBtn {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#addTripBtn:hover {
+  background-color: #0056b3;
 }
 
 .tripList {
-  border-radius: 10px;
-  overflow: auto;
-  height: 90vh;
-  width: 30vw;
-}
-
-.tripList h2{
-  color: #2c3e50;
+  margin-top: 20px;
 }
 
 .tripItem {
-  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  background-color: rgb(230, 222, 222);
-}
-
-.tripItem:hover {
-  background-color: #e0e0e0;
 }
 
 .tripItem.selected {
-  background-color: #f5f5f5;
+  background-color: #007bff;
+  color: white;
+}
+
+.tripItem:hover {
+  background-color: #f0f0f0;
 }
 
 .tripDetails {
-  padding: 15px;
-  background-color: rgb(215, 214, 214);
-  border-radius: 0 0 10px 10px;
-}
-
-.tripMapContainer {
-  width: calc(70vw);
-  height: calc(80vh);
-}
-
-#addTripBtn, #startTripButton, #stopTripButton {
-  background-color: #f5f5f5;
-  border: none;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 .tripForm {
-  width: 25vw;
-  background-color: #f8f8f8;
-  padding: 20px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease-out;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: white;
+  /* background: linear-gradient(pink, pink, white); */
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-.tripForm button {
+/* .tripForm:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%) scale(1.05);
+} */
+
+.tripForm input, .tripForm select {
+  margin-bottom: 10px;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #333;
+}
+
+.tripForm input:focus, .tripForm select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.tripForm input::placeholder, .tripForm select::placeholder {
+  color: #999;
+}
+
+.tripForm select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+}
+
+
+
+.saveButton, .cancelButton {
   padding: 10px 20px;
   border: none;
-  cursor: pointer;
   border-radius: 10px;
-  transition: background-color 0.3s ease;
+  color: white;
   font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  /* width: 100px; */
 }
 
 .saveButton {
   background-color: #28a745;
-  color: white;
-  margin-right: 10px;
-}
-
-.saveButton:hover {
-  background-color: #218838;
 }
 
 .cancelButton {
   background-color: #dc3545;
-  color: white;
 }
 
-.tripForm .cancelButton:hover {
+.saveButton:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.cancelButton:hover {
   background-color: #c82333;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-
-.tripForm select, .tripForm input {
-width: 100%;
-padding: 4px;
-margin: 4px 0;
-box-sizing: border-box;
-border: 1px solid #ccc;
-border-radius: 10px;
-background-color: #fff;
-font-size: 15px;
-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.saveButton:active, .cancelButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tripForm select:focus, .tripForm input[type="datetime-local"]:focus {
-border-color: #0078d4;
-box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+.saveButton:focus, .cancelButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+}
+
+.cancelButton:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.5);
+}
+
+.tripMapContainer {
+  flex: 1;
+  background-color: #eaeaea;
+  padding: 20px;
 }

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { LogIn, LogOut } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Hamburger from './Hamburger';
 
 const apiUrl = process.env.REACT_APP_API_URL;
-
 
 const useUserData = () => {
   const [userdata, setUserdata] = useState({});
@@ -46,22 +46,31 @@ const Sidebar = () => {
         />
       </div>
       <nav className="flex-grow mt-8">
-        <a href="/fleet" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-          <span className="mr-2">🚗</span> Fleet
-        </a>
-        <a href="/dashboard" className="flex items-center py-2 px-4 bg-indigo-600 text-white">
-          <span className="mr-2">📊</span> Dashboard
-        </a>
-        <a href="/trip-log" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-          <span className="mr-2">🗺️</span> Trip log
-        </a>
-        <a href="/report" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-          <span className="mr-2">📄</span> Report
-        </a>
-        <a href="/account" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-          <span className="mr-2">👤</span> Account
-        </a>
-      </nav>
+  {/* <a href="/fleet" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">🚗</span> Fleet
+  </a> */}
+  <a href="/dashboard" className="flex items-center py-2 px-4 bg-indigo-600 text-white">
+    <span className="mr-2">📊</span> Dashboard
+  </a>
+  <a href="/trip-log" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">🗺️</span> Trip log
+  </a>
+  <a href="/report" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">📄</span> Report
+  </a>
+  <a href="/AddRoute" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">🛣️</span> Add Route
+  </a>
+  <a href="/ViewRoutes" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">🛣️</span> Routes
+  </a>
+  <a href="/VehicleData" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">🚗</span> Vehicles
+  </a>
+  <a href="/DriverData" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+    <span className="mr-2">👤</span> Drivers
+  </a>
+</nav>
       <div className="p-4 mt-auto">
         {Object.keys(userdata).length > 0 ? (
           <div className="flex items-center text-gray-600 hover:text-gray-800">

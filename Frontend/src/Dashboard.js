@@ -6,7 +6,8 @@ import VehicleData from './VehicleData';
 import ViewRoute from './ViewRoute';
 import axios from 'axios';
 import './Dashboard.css';
-import Headers from './Navbar';
+// import Headers from './Navbar';
+import Sidebar from './components/SideBar';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -152,7 +153,7 @@ const Dashboard = () => {
       const response = await axios.post(`${apiUrl}/addTripData`, newTripData, { withCredentials: true });
       console.log('Trip saved successfully:', response.data);
       setShowForm(false);
-      fetchTripData().then(setTripData); // Refresh trip data after adding new trip
+      fetchTripData().then(setTripData);
     } catch (error) {
       console.error('Error saving new trip:', error);
     }
@@ -182,17 +183,16 @@ const Dashboard = () => {
     }
   }
 
-
   return (
     <div className="Dashboard">
-      <div className="dashNavbar">
-        <Headers />
-      </div>
-
+       <Sidebar />
       <div className="listMapContainer">
         <div className="tripOptionsContainer">
           <div className="tripList">
-            <h2>Trips:</h2>
+            <div className="headerContainer">
+              <h2>Trips:</h2>
+              <button id="addTripBtn" onClick={handleAddTripClick}>Add Trip</button>
+            </div>
             {tripData &&
               tripData.map((trip) => (
                 <div
@@ -232,9 +232,6 @@ const Dashboard = () => {
                 </div>
               ))}
           </div>
-          <div className="buttonsContainer">
-            <button id="addTripBtn" onClick={ handleAddTripClick }>Add Trip</button>
-          </div>
           {showForm && (
             <div className="tripForm">
               <label htmlFor="trip_start_date_time">Trip start date time</label>
@@ -245,7 +242,7 @@ const Dashboard = () => {
                 onChange={handleInputChange}
                 placeholder="Start Time"
               />
-              {/* <label htmlFor="trip_end_date_time">Trip end date time</label>
+{/* <label htmlFor="trip_end_date_time">Trip end date time</label>
               <input
                 type="datetime-local"
                 name="trip_end_date_time"
