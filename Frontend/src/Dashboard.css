@@ -6,6 +6,7 @@
 .Sidebar {
   width: 250px;
   background-color: #f4f4f4;
+  flex-shrink: 0;
 }
 
 .listMapContainer {
@@ -15,7 +16,7 @@
 }
 
 .tripOptionsContainer {
-  width: 600px;
+  width: 500px;
   background-color: #f9f9f9;
   padding: 20px;
   display: flex;
@@ -84,7 +85,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 500px;
   background-color: white;
   /* background: linear-gradient(pink, pink, white); */
   padding: 25px;

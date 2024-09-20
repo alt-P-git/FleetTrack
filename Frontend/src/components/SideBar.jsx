@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { LogIn, LogOut } from 'react-feather';
+import { LogIn, LogOut, Menu, X } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Hamburger from './Hamburger';
+// import Hamburger from './Hamburger';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -37,54 +37,55 @@ const Sidebar = () => {
 
   const logout = () => navigate('/logout');
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className={`${isSidebarOpen ? "w-80" : "w-0"} bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden flex flex-col h-screen`}>
-      <div className="flex items-center justify-center p-2 h-30">
+    <div className={`${isSidebarOpen ? "w-80" : "w-20"} bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden flex flex-col h-screen`}>
+      <div className="flex items-center justify-between p-2 h-30">
         <img
           src="https://i.ibb.co/pWQ16dv/logo.webp"
           alt="FleetKu Logo" className="h-full w-auto object-contain"
         />
+        <button onClick={toggleSidebar} className="text-gray-600 hover:text-gray-800">
+          {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
       <nav className="flex-grow mt-8">
-  {/* <a href="/fleet" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">🚗</span> Fleet
-  </a> */}
-  <a href="/dashboard" className="flex items-center py-2 px-4 bg-indigo-600 text-white">
-    <span className="mr-2">📊</span> Dashboard
-  </a>
-  <a href="/trip-log" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">🗺️</span> Trip log
-  </a>
-  <a href="/report" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">📄</span> Report
-  </a>
-  <a href="/AddRoute" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">🛣️</span> Add Route
-  </a>
-  <a href="/ViewRoutes" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">🛣️</span> Routes
-  </a>
-  <a href="/VehicleData" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">🚗</span> Vehicles
-  </a>
-  <a href="/DriverData" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-    <span className="mr-2">👤</span> Drivers
-  </a>
-</nav>
+        <a href="/dashboard" className="flex items-center py-2 px-4 bg-indigo-600 text-white">
+          <span className="mr-2">📊</span> {isSidebarOpen && "Dashboard"}
+        </a>
+        <a href="/" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+          <span className="mr-2">🏠</span> {isSidebarOpen && "Home"}
+        </a>
+        <a href="/AddRoute" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+          <span className="mr-2">🛣️</span> {isSidebarOpen && "Add Route"}
+        </a>
+        <a href="/ViewRoutes" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+          <span className="mr-2">🛣️</span> {isSidebarOpen && "Routes"}
+        </a>
+        <a href="/VehicleData" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+          <span className="mr-2">🚗</span> {isSidebarOpen && "Vehicles"}
+        </a>
+        <a href="/DriverData" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
+          <span className="mr-2">👤</span> {isSidebarOpen && "Drivers"}
+        </a>
+      </nav>
       <div className="p-4 mt-auto">
         {Object.keys(userdata).length > 0 ? (
           <div className="flex items-center text-gray-600 hover:text-gray-800">
             <img src={userdata.image} className="w-8 h-8 rounded-full mr-2" alt="User" />
-            <span className="mr-2">{userdata.displayName}</span>
+            {isSidebarOpen && <span className="mr-2">{userdata.displayName}</span>}
             <button onClick={logout} className="flex items-center">
               <LogOut className="w-5 h-5 mr-2" />
-              Logout
+              {isSidebarOpen && "Logout"}
             </button>
           </div>
         ) : (
           <button onClick={loginwithgoogle} className="flex items-center text-gray-600 hover:text-gray-800">
             <LogIn className="w-5 h-5 mr-2" />
-            Login
+            {isSidebarOpen && "Login"}
           </button>
         )}
       </div>

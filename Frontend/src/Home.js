@@ -8,9 +8,9 @@ import Services from './Services';
 import ContactUs from './Contact';
 import FleetInfo from './components/FleetInfo';
 import Sidebar from './components/SideBar';
+import LastData from './components/LastData';
 
 const Home = () => {
-  
   return (
     <main style={{position: "relative"}}>
       {/* <div className='nav'>
@@ -24,15 +24,14 @@ const Home = () => {
       {/* <div id="services"><Services /></div> */}
       {/* <div id="extras"><Extras /></div> */}
       {/* <div id="contact"><ContactUs /></div> */}
-      <Header />
-      <div style={{ display: 'flex' }}>
+      {/* <Header /> */}
+      <div style={{ display: 'flex'}}>
         <Sidebar />
         <FleetInfo />
+        {/* <LastData /> */}
+
       </div>
       
-
-      
-
       {/* <Footer /> */}
     </main>
   );

@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Map } from "react-feather";
-
+import LastData from "./LastData";
 
 export default function FleetInfo({ selectedVehicle }) {
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    const loadMapScript = () => {
+      const script = document.createElement("script");
+      script.src = "http://www.bing.com/api/maps/mapcontrol?callback=GetMap";
+      script.async = true;
+      script.defer = true;
+      window.GetMap = () => {
+        const map = new window.Microsoft.Maps.Map(mapRef.current, {
+          credentials: "Your_Bing_Maps_Key",
+          center: new window.Microsoft.Maps.Location(47.6062, -122.3321),
+          mapTypeId: window.Microsoft.Maps.MapTypeId.road,
+          zoom: 10,
+        });
+      };
+      document.body.appendChild(script);
+    };
+
+    if (!window.Microsoft || !window.Microsoft.Maps) {
+      loadMapScript();
+    } else {
+      window.GetMap();
+    }
+  }, []);
+
   return (
     <div className="bg-white shadow rounded-lg mb-6 flex flex-col md:flex-row w-full h-3/4">
       <div className="w-full md:w-3/4 p-4">
         <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-blue-100 opacity-50"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Map className="w-24 h-24 text-blue-500 opacity-25" />
-          </div>
+          <div ref={mapRef} className="absolute inset-0"></div>
           <div className="absolute top-4 left-4 bg-white p-2 rounded shadow z-10">
             <h3 className="font-semibold text-gray-700">Fleet Location</h3>
           </div>
           <div className="absolute bottom-4 right-4 bg-white p-2 rounded shadow z-10">
-            <p className="text-sm text-gray-600">Zoom: 100%</p>
+            {/* <p className="text-sm text-gray-600">Zoom: 100%</p> */}
           </div>
           <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-red-500 rounded-full"></div>
           <div className="absolute top-1/2 left-2/3 w-3 h-3 bg-green-500 rounded-full"></div>
@@ -30,7 +53,6 @@ export default function FleetInfo({ selectedVehicle }) {
           </h3>
           <p className="text-2xl font-semibold">Fleet1</p>
           <div className="flex justify-between mb-2">
-            
             <div>
               <p className="text-2xl font-bold">135 Km/h</p>
               <p className="text-sm text-gray-600">Speed</p>
@@ -54,5 +76,7 @@ export default function FleetInfo({ selectedVehicle }) {
         </div>
       </div>
     </div>
+
+    
   );
 }

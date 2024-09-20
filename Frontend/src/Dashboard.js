@@ -41,12 +41,15 @@ const Dashboard = () => {
     alert_threshold: 10
   });
 
+  const [selectedRouteId, setSelectedRouteId] = useState(null);
+  const [selectedRoute, setSelectedRoute] = useState(null);
+
   const fetchDriverData = async () => {
     try {
-        const response = await axios.get(`${apiUrl}/driverdata`, { withCredentials: true });
-        setDriverData(response.data);
+      const response = await axios.get(`${apiUrl}/driverdata`, { withCredentials: true });
+      setDriverData(response.data);
     } catch (error) {
-        console.error('Error fetching driver data:', error);
+      console.error('Error fetching driver data:', error);
     }
   };
 
@@ -125,6 +128,8 @@ const Dashboard = () => {
   }
 
   const handleInputChange = (e) => {
+    setSelectedRouteId(e.target.value);
+    console.log(`Route selected   ${selectedRoute}`)
     const { name, value } = e.target;
     setNewTrip({ ...newTrip, [name]: value });
   };
@@ -132,7 +137,7 @@ const Dashboard = () => {
   const handleSaveClick = async () => {
     //get the tripId from the max tripId and increment it by 1
     var maxTripId = 0;
-    if(tripData.length > 0) {
+    if (tripData.length > 0) {
       maxTripId = Math.max(...tripData.map(trip => trip.tripId))
     };
     const estTime = routeData.find(route => route._id === newTrip.routeId).estimatedTime;
@@ -143,7 +148,7 @@ const Dashboard = () => {
       time_threshold: newTrip.time_threshold * 60 * 1000,
       scheduled_date_time: new Date(newTrip.scheduled_date_time).getTime(),
       trip_start_date_time: new Date(newTrip.scheduled_date_time).getTime(),
-      trip_end_date_time: new Date(newTrip.scheduled_date_time).getTime() + estTime*1000,
+      trip_end_date_time: new Date(newTrip.scheduled_date_time).getTime() + estTime * 1000,
       tripId: maxTripId + 1,
       alert_threshold: newTrip.alert_threshold * 60 * 1000
     };
@@ -171,10 +176,10 @@ const Dashboard = () => {
   };
 
   const handleStartStopTripClick = async (tripId, status) => {
-    try{
+    try {
       const response = await axios.post(`${apiUrl}/updateTripStatus`,
         { tripId, tripStatus: status },
-        { withCredentials: true } 
+        { withCredentials: true }
       );
       console.log('Trip status updated:', response.data);
       fetchTripData().then(setTripData);
@@ -185,7 +190,11 @@ const Dashboard = () => {
 
   return (
     <div className="Dashboard">
-       <Sidebar />
+      <Sidebar />
+      {/* This is the map */}
+      <div className="viewMapContainer">
+          {selectedRouteId && <ViewRoute routeId={selectedRouteId} />}
+        </div>
       <div className="listMapContainer">
         <div className="tripOptionsContainer">
           <div className="tripList">
@@ -242,7 +251,7 @@ const Dashboard = () => {
                 onChange={handleInputChange}
                 placeholder="Start Time"
               />
-{/* <label htmlFor="trip_end_date_time">Trip end date time</label>
+              {/* <label htmlFor="trip_end_date_time">Trip end date time</label>
               <input
                 type="datetime-local"
                 name="trip_end_date_time"
@@ -285,7 +294,7 @@ const Dashboard = () => {
           )}
         </div>
         <div className="tripMapContainer">
-        {routeId && <ViewRoute key={vehicleCoordinate} routeId={routeId} vehicleCoordinate={vehicleCoordinate} />}
+          {routeId && <ViewRoute key={vehicleCoordinate} routeId={routeId} vehicleCoordinate={vehicleCoordinate} />}
         </div>
       </div>
     </div>
