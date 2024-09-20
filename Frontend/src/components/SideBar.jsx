@@ -60,7 +60,7 @@ const Sidebar = () => {
           <span className="mr-2">🏠</span> {isSidebarOpen && "Home"}
         </a>
         <a href="/AddRoute" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
-          <span className="mr-2">🛣️</span> {isSidebarOpen && "Add Route"}
+          <span className="mr-2">➕</span> {isSidebarOpen && "Add Route"}
         </a>
         <a href="/ViewRoutes" className="flex items-center py-2 px-4 text-gray-600 hover:bg-gray-100">
           <span className="mr-2">🛣️</span> {isSidebarOpen && "Routes"}
@@ -91,6 +91,6 @@ const Sidebar = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Sidebar;

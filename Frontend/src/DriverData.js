@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './DriverData.css';
 import axios from 'axios';
-import Headers from './Navbar';
+// import Headers from './Navbar';
+import Sidebar from './components/SideBar';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -11,6 +12,7 @@ const DriverData = () => {
     const [showForm, setShowForm] = useState(false);
     const [newDriver, setNewDriver] = useState({ driverID: '', name: '', mobile: '', info: '' });
     const [updateForm, setUpdateForm] = useState(false);
+    const [driverImage, setDriverImage] = useState('');
 
     useEffect(() => {
         fetchDriverData();
@@ -78,8 +80,13 @@ const DriverData = () => {
         };
       }, [showForm]); */
 
+      //image url
+    const imageUrl = 'https://cdn-icons-png.flaticon.com/512/1535/1535791.png';
+
     const handleDriverClick = (driver) => {
         setSelectedDriver(driver);
+        // setDriverImage(driver.imageUrl);
+        setDriverImage(imageUrl);
     };
 
     const handleInputChange = (event) => {
@@ -118,8 +125,8 @@ const DriverData = () => {
 
     return (
         <div>
-            <Headers />
-            <div className="driverData">
+            <div className="driverData" style={{display: 'flex'}}>
+                <Sidebar />
                 <div className="driverDataContainer">
                     <h2>Driver Data</h2>
                     <div className="driverList">
@@ -155,6 +162,11 @@ const DriverData = () => {
                         </div>
                     )}
                 </div>
+                {selectedDriver && (
+                    <div className="driverImageContainer">
+                        <img src={driverImage} alt={`${selectedDriver.name}'s image`} className="driverImage" />
+                    </div>
+                )}
             </div>
         </div>
     );

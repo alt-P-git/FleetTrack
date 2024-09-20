@@ -3,6 +3,7 @@ import './VehicleData.css';
 import axios from 'axios';
 import randomColor from 'randomcolor';
 import Headers from './Navbar';
+import Sidebar from './components/SideBar';
 
 const VehicleData = () => {
     const [map, setMap] = useState(null);
@@ -172,8 +173,9 @@ const VehicleData = () => {
 
 
     return (
-        <> <Headers />
-            <div className="vehicleData">
+        <>
+            <div className="vehicleData" style={{ display: 'flex'}}>
+                <Sidebar />
                 <div className="vehicleDataContainer">
                     <h2>Vehicle Data</h2>
                     <div className="vehicleList">

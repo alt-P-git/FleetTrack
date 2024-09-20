@@ -3,6 +3,8 @@ import ViewRoute from "./ViewRoute";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Headers from "./Navbar";
+// import { Sidebar } from "react-feather";
+import Sidebar from "./components/SideBar";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -44,8 +46,10 @@ const ViewRoutes = () => {
 
   return (
     <>
-      <Headers />
-      <div className="viewRoutes">
+      {/* <Headers /> */}
+      
+      <div className="viewRoutes" style={{ display: 'flex' }}>
+        <Sidebar/>
         <div className="routesContainer">
           <h2>Routes</h2>
           <div className="routeList">

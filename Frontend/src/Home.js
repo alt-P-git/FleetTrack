@@ -12,7 +12,7 @@ import LastData from './components/LastData';
 
 const Home = () => {
   return (
-    <main style={{position: "relative"}}>
+    <main className="relative">
       {/* <div className='nav'>
         <Navbar />
       </div> */}
@@ -25,12 +25,16 @@ const Home = () => {
       {/* <div id="extras"><Extras /></div> */}
       {/* <div id="contact"><ContactUs /></div> */}
       {/* <Header /> */}
-      <div style={{ display: 'flex'}}>
+      <div className='flex'>
         <Sidebar />
-        <FleetInfo />
-        {/* <LastData /> */}
-
+        <div className='flex-1'>
+          <FleetInfo />
+          <div className="overflow-scroll overflow-x-hidden h-80 scrollbar scrollbar-thumb-rounded scrollbar-thumb-gradient-135 scrollbar-track-gray-200">
+            <LastData filteredVehicles={[]} handleVehicleSelect={() => {}} />
+          </div>
+        </div>
       </div>
+
       
       {/* <Footer /> */}
     </main>

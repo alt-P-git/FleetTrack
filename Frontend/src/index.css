@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-iframe
-{
+
+iframe {
     display: none;
+}
+
+.scrollbar-thumb-gradient-135 {
+    background: linear-gradient(135deg, #ffffff, #d3c7dd);
 }

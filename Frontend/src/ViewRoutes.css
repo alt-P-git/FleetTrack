@@ -1,7 +1,43 @@
-/* #myMapView {
-  height: calc(100vh);
-  width: calc(max-width)
-} */
+.routeDetails {
+  padding: 10px;
+  margin: 10px;
+  background-color: #dacccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.viewMapContainer {
+  height: 100vh;
+  width: 75vw;
+}
+
+.routeButtons {
+  position: absolute;
+  bottom: 10px;
+}
+
+#addRoute {
+  background-color: rgb(107, 42, 107);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color s ease, transform 0.3s ease;
+}
+
+#addRoute:hover {
+  background-color: #ff1a1a;
+  transform: scale(1.05);
+}
 
 .viewRoutes {
   display: flex;
@@ -14,11 +50,16 @@
   display: flex;
   flex-direction: column;
   padding: 15px;
-  /* margin: 0 auto; */
 }
 
-.routesContainer p{
+.routesContainer p {
   color: black;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.routesContainer h2 {
+  color: #2c3e50;
 }
 
 .routeList {
@@ -32,7 +73,8 @@
   transition: background-color 0.3s ease;
   border-radius: 10px;
   margin-bottom: 10px;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #ffffff, #d3c7dd);
+  font-weight: 600;
 }
 
 .routeItem:hover {
@@ -41,38 +83,4 @@
 
 .routeItem.selected {
   background-color: #f5f5f5;
-}
-
-.routeDetails {
-  padding: 15px;
-  background-color: #dedddd;
-  border-radius: 0 0 10px 10px;
-}
-
-.viewMapContainer {
-  height: calc(100vh);
-  width: calc(75vw)
-}
-
-.routeButtons {
-  position: absolute;
-  bottom: 10px;
-}
-
-#addRoute {
-  background-color: #f5f5f5;
-  border: none;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.routesContainer h2{
-  color: #2c3e50;
 }

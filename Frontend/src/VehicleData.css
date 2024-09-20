@@ -9,10 +9,12 @@
 }
 
 .vehicleDataContainer {
+    flex-grow: 1;
     width: 25vw;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 20px;
+    width: 500px;
 }
 
 .vehicleDataContainer h2 {
@@ -25,9 +27,11 @@
 }
 
 .vehicleList {
-    border-radius: 10px;
+    /* border-radius: 10px;
     overflow: hidden;
-    height: 90vh;
+    height: 90vh; */
+    display: flex;
+    flex-direction: column;
   }
 
   .vehicleList p{
@@ -35,12 +39,13 @@
 }
   
   .vehicleItem {
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: 1px solid #ccc;
     border-radius: 10px;
     margin-bottom: 10px;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #ffffff, #d3c7dd);
   }
   
   .vehicleItem:hover {
@@ -49,13 +54,29 @@
   
   .vehicleItem.selected {
     background-color: #f5f5f5;
+    border-color: #999;
   }
   
   .vehicleDetails {
-    padding: 15px;
-    background-color: #dedddd;
-    border-radius: 0 0 10px 10px;
-  }
+    padding: 10px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    color: #333;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicleDetails p {
+  margin: 5px 0;
+}
+
+.vehicleDetails:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
   .buttonsContainer{
     width: 25vw;
@@ -63,27 +84,31 @@
     bottom: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-  }
+    justify-content: space-around;
+}
 
   #showAllBtn {
-    background-color: #f5f5f5;
+    background-color:#4c51bf;
     border: none;
-    color: black;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 10px ;
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease;
   }
 
+  .vehicleName {
+    font-weight: bold;
+}
+
   #addVehicleBtn {
-    background-color: #f5f5f5;
+    background-color:#4c51bf;
     border: none;
-    color: black;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -113,11 +138,19 @@
     box-sizing: border-box;
   }
   
-  .vehicleForm button {
-    padding: 10px 20px;
+  .vehicleDetails button {
+    margin-right: 10px;
+    padding: 5px 10px;
     border: none;
+    background-color: indigo;
+    color: white;
     cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
-  }
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.vehicleDetails button:hover {
+    background-color: rgb(126, 60, 173);
+}
+
+

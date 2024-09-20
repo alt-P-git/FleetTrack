@@ -188,13 +188,17 @@ const Dashboard = () => {
     }
   }
 
+
   return (
     <div className="Dashboard">
       <Sidebar />
+
       {/* This is the map */}
       <div className="viewMapContainer">
           {selectedRouteId && <ViewRoute routeId={selectedRouteId} />}
         </div>
+
+
       <div className="listMapContainer">
         <div className="tripOptionsContainer">
           <div className="tripList">

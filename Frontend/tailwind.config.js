@@ -3,7 +3,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      scrollbar: {
+        DEFAULT: {
+          thumb: 'linear-gradient(135deg, #ffffff, #d3c7dd)',
+          track: '#f1f1f1',
+        },
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

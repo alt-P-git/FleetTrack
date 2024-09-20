@@ -30,7 +30,7 @@ export default function FleetInfo({ selectedVehicle }) {
   }, []);
 
   return (
-    <div className="bg-white shadow rounded-lg mb-6 flex flex-col md:flex-row w-full h-3/4">
+    <div className="bg-white shadow rounded-lg mb-4 flex flex-col md:flex-row w-full h-54">
       <div className="w-full md:w-3/4 p-4">
         <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center relative overflow-hidden">
           <div ref={mapRef} className="absolute inset-0"></div>
@@ -46,18 +46,38 @@ export default function FleetInfo({ selectedVehicle }) {
         </div>
       </div>
       <div className="w-full md:w-2/4 p-4">
-        <h2 className="text-xl font-semibold mb-4">My Fleet</h2>
-        <div className="bg-indigo-100 rounded-lg p-4 mb-4">
+        {/* <h2 className="text-xl font-semibold mb-4">My Fleet</h2> */}
+         <div className="bg-indigo-100 rounded-lg p-4 mb-4">
           <h3 className="text-lg font-semibold text-indigo-600 mb-2">
             {selectedVehicle}
           </h3>
-          <p className="text-2xl font-semibold">Fleet1</p>
-          <div className="flex justify-between mb-2">
+          <p className="text-2xl font-semibold">Fleet - Information</p>
+          {/* <div className="flex justify-between mb-2"> */}
             <div>
-              <p className="text-2xl font-bold">135 Km/h</p>
-              <p className="text-sm text-gray-600">Speed</p>
+              <p className="text-1xl">Fleet No. 1 : Tata Trucks</p>
+              <p className="text-sm text-green-600">Currently Active</p>
+
+              <br/>
+
+              <p className="text-1xl">Fleet No. 2 : Ashok Leyland</p>
+              <p className="text-sm text-green-600">Currently Active</p>
+
+              <br/>
+
+              <p className="text-1xl">Fleet No. 3 : Mahindra Trucks</p>
+              <p className="text-sm text-red-600">Free / Not On Trip</p>
+
+              <br/>
+
+              <p className="text-1xl">Fleet No. 4 : Eicher Trucks</p>
+              <p className="text-sm text-green-600">Currently On Trip</p>
+
+              <br/>
+
+              <p className="text-1xl">Fleet No. 5 : Volvo Trucks</p>
+              <p className="text-sm text-orange-600">About To Go On A Trip</p>
             </div>
-            <div>
+            {/* <div>
               <p className="text-2xl font-bold">486 Km</p>
               <p className="text-sm text-gray-600">Traveled</p>
             </div>
@@ -65,18 +85,17 @@ export default function FleetInfo({ selectedVehicle }) {
           <div>
             <p className="text-2xl font-bold">20°C</p>
             <p className="text-sm text-gray-600">Temperature</p>
-          </div>
+          </div> */}
+          
         </div>
-        <div className="bg-gray-200 h-40 rounded-lg flex items-center justify-center">
+        {/* <div className="bg-gray-200 h-40 rounded-lg flex items-center justify-center">
           <img
-            src="https://img.freepik.com/free-photo/truck-with-white-trailer-that-says-scania-side_123827-23486.jpg"
+            src="https://img.fleetowner.com/files/base/ebm/fleetowner/image/2024/01/65a8277960bb88001ee41239-imc_lightweight_internationals.png?auto=format,compress&fit=crop&q=45&h=356&height=356&w=640&width=640"
             alt="truckImg"
-            className="h-full w-full object-cover"
+            className="h-full w-3/4"
           />
-        </div>
+        </div> */}
       </div>
     </div>
-
-    
   );
 }
