@@ -81,17 +81,40 @@ router.get('/vehicleData', checkAuthentication, async (req, res) => {
 
 router.post('/updateVehicleLocation', async (req, res) => {
     const data = req.body;
-    console.log("updating vehicle location");
+    console.log("Updating vehicle location");
 
     try {
+        const vehiclePing = await VehiclePing.findOne({
+            vehicleID: data.vehicleID,
+            password: data.password,
+        });
+
+        if (!vehiclePing) {
+            console.log("Vehicle ping not found");
+            return res.status(404).send('Vehicle ping not found');
+        }
+
+        const currentTime = new Date().getTime();
+        const lastPingTime = vehiclePing.last_ping_date_time;
+        const timeDifference = currentTime - lastPingTime;
+
+        if (timeDifference > 20000) {
+            console.log("Ping is older than 20 seconds. Location update not allowed.");
+            return res.status(400).send('Ping is older than 20 seconds. Location update not allowed.');
+        }
+
         const vehicle = await Vehicle.findOneAndUpdate(
             { userID: data.userID, vehicleID: data.vehicleID, password: data.password },
-            { last_location: data.location, last_location_date_time: new Date().getTime() },
+            { last_location: data.location, last_location_date_time: currentTime },
             { new: true }
         );
 
-        if (!vehicle) return res.status(404).send('Vehicle not found');
-        console.log('Saved!');
+        if (!vehicle) {
+            console.log("Vehicle not found");
+            return res.status(404).send('Vehicle not found');
+        }
+
+        console.log("Vehicle location updated successfully");
         res.send(vehicle);
     } catch (err) {
         console.error(err);
